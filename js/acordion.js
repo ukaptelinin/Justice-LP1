@@ -1,37 +1,67 @@
-const accordion =document.querySelectorAll('.accordion');
-const accContentAll = document.querySelectorAll('.acc_content');
-let currentIndex;
-//function(ind,element) {
++function () {
 
-//}
-accordion.forEach((el,index) => {
-    el.addEventListener('click',(event) =>{
-        const accHeader = el.querySelector('.acc_header');
-        const accContent = el.querySelector('.acc_content');
-        const accArrow = el.querySelector('.acc_arrow');
-        currentIndex= index;
-       
-        
-         if(event.target.contains(accHeader) && !accContent.classList.contains('acc_content-active')) 
-         {
-            accContent.classList.add('acc_content-active');
-            accArrow.textContent = '▲';
-         } 
-         else if(accContent.classList.contains('acc_content-active'))
-         {
-            accContent.classList.remove('acc_content-active');
-            accArrow.textContent = '▼';
-         };
-         
-    })
+document.querySelectorAll('.accordeon-section').forEach(function(section) {
+   section.addEventListener('click', function(e) {
+
+      document.querySelectorAll('.accordeon-section').forEach(function(section) {
+         //console.log(section.querySelector('.accordeon-body'));
+         let elemSection = section.querySelector('.accordeon-body');
+         let elemArrow = section.querySelector('.acc_arrow');
+         elemSection.classList.remove('opened');
+         elemArrow.innerText = '▼';
+      })
+      let bodyItem = e.target.closest('.accordeon-section').querySelector('.accordeon-body');
+      let headPoint = e.target.closest('.accordeon-section').querySelector('.acc_arrow');
+      console.log(bodyItem);
+      console.log(bodyItem.classList);
+      let ind = bodyItem.classList.contains('opened');
+      console.log(ind);
+      if(ind == true){
+         bodyItem.classList.remove('opened');
+         //console.log(bodyItem);
+         headPoint.innerText = '▼';
+         //console.log(bodyItem);
+         //console.log(headPoint);
+      } else {
+      bodyItem.classList.add('opened'); 
+      headPoint.textContent = '▲';
+   }
+      
+   })
 })
 
-/*accContentAll.forEach((element,ind) => {
-   console.log(ind);
-   console.log(element.classList);
-   console.log(currentIndex);
-   if(element.classList.contains('acc_content-active') && ind != currentIndex){
-      accContent.classList.remove('acc_content-active');
-      accArrow.textContent = '▼';
-   }
-})*/
+} ()
+
+
+
+
+
+
+
+
+/*const titles = document.querySelectorAll('.accordion_title');
+const contents = document.querySelectorAll('.accordion_content');
+const accArrow = document.querySelectorAll('.acc_arrow');
+
+titles.forEach(item => item.addEventListener('click', () =>{
+  const activeContent = document.querySelector('#'+ item.dataset.tab);
+  const activeArrow = document.querySelector('#'+ item.dataset.tab);
+   if(activeContent.classList.contains('acc-active')) {
+      activeContent.classList.remove('acc-active')
+      item.classList.remove('acc-active');
+      activeArrow.textContent = '▼';
+      activeContent.style.maxHeight = 0;
+   } else {
+      contents.forEach((element, index) => {
+           element.classList.remove('acc-active');
+           element.style.maxHeight = 0;
+      })
+   titles.forEach(element => element.classList.remove('acc-active'));
+   accArrow.forEach(element => element.textContent = '▼')
+   
+   item.classList.add('acc-active');
+   activeContent.classList.add('acc-active');
+   activeContent.style.maxHeight = activeContent.scrollHeight + 'px';
+   activeArrow.textContent = '▲';
+}
+})) */

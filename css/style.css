@@ -226,27 +226,7 @@ body {
     cursor: pointer;
 }
 
-/*.accordion_wr {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}*/
-.acc_arrow {
-    padding-right: 20px;
-}
 
-.acc_content{
-    padding-left: 20px;
-    
-    display: none;
-    /*max-height: 0;
-    overflow: hidden;*/
-}
-
-.acc_content-active {
-    transition: 0.3s ease;
-    display: block;
-}
 
 /*            Стили картинок                         */
 
@@ -431,6 +411,49 @@ label {
 }
 
 /*                    accordeon  CSS                   */
+.accordeon-section {
+
+}
+
+.accordeon-header {
+    font-size: 20px;
+    color: rgb(8, 8, 116);
+    padding: 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/*.acc_arrow:hover {
+    text-decoration: none;
+}*/
+.accordeon-header:hover {
+    
+    color: #522be1;
+}
+    
+
+
+.accordeon-body {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.4s ease-in;
+}
+
+.accordeon-body > * {
+    padding: 20px;
+    margin: 0;
+    display: block;
+    
+}
+
+ .opened {
+    max-height: 150px;
+}
+/*-----------------------------------------------------------------------*/
+
+
 .page__main-image-5 {
     text-align: center;
 }
@@ -506,6 +529,9 @@ label {
 .footer__tel-txt {
     margin-left: 150px;
 }
+
+/*-------------Модальное окно---------------------------*.
+/*______________________________________________________*/
 
 /*____________________________________________________*/
 
