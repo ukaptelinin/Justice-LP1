@@ -2,6 +2,15 @@
 
 document.querySelectorAll('.accordeon-section').forEach(function(section) {
    section.addEventListener('click', function(e) {
+      let bodyItem,headPoint;
+      bodyItem = e.target.closest('.accordeon-section').querySelector('.accordeon-body');
+      headPoint = e.target.closest('.accordeon-section').querySelector('.acc_arrow');
+
+      if(bodyItem.classList.contains('opened')) {
+         bodyItem.classList.remove('opened');
+         //console.log(bodyItem);
+         headPoint.innerText = '▼';
+      } else {
 
       document.querySelectorAll('.accordeon-section').forEach(function(section) {
          //console.log(section.querySelector('.accordeon-body'));
@@ -10,9 +19,9 @@ document.querySelectorAll('.accordeon-section').forEach(function(section) {
          elemSection.classList.remove('opened');
          elemArrow.innerText = '▼';
       })
-      let bodyItem = e.target.closest('.accordeon-section').querySelector('.accordeon-body');
-      let headPoint = e.target.closest('.accordeon-section').querySelector('.acc_arrow');
-      console.log(bodyItem);
+      bodyItem = e.target.closest('.accordeon-section').querySelector('.accordeon-body');
+      headPoint = e.target.closest('.accordeon-section').querySelector('.acc_arrow');
+      /*console.log(bodyItem);
       console.log(bodyItem.classList);
       let ind = bodyItem.classList.contains('opened');
       console.log(ind);
@@ -22,12 +31,12 @@ document.querySelectorAll('.accordeon-section').forEach(function(section) {
          headPoint.innerText = '▼';
          //console.log(bodyItem);
          //console.log(headPoint);
-      } else {
+      } else {*/
       bodyItem.classList.add('opened'); 
       headPoint.textContent = '▲';
    }
-      
-   })
+}  
+   )
 })
 
 } ()
